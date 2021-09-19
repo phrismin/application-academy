@@ -3,10 +3,10 @@ package academy.kovalevskyi.algorithms.week1.day2;
 import java.util.*;
 
 public class Graph {
-  private final HashMap<Integer, Set<Node>> setHashMap;
+  private final Map<Integer, Set<Node>> setMap;
 
-  private Graph(HashMap<Integer, Set<Node>> setHashMap) {
-    this.setHashMap = setHashMap;
+  private Graph(Map<Integer, Set<Node>> setMap) {
+    this.setMap = setMap;
   }
 
   private static void dfs(Node node, Set<Node> set, Queue<Node> nodeQueue) {
@@ -24,7 +24,7 @@ public class Graph {
   }
 
   public static Graph generateGraph(Set<Node> nodes) {
-    HashMap<Integer, Set<Node>> map = new HashMap<>();
+    Map<Integer, Set<Node>> setMap = new HashMap<>();
     Set<Node> set = new HashSet<>();
     Queue<Node> nodeQueue = new LinkedList<>(nodes);
     int groupNumber = 0;
@@ -32,18 +32,18 @@ public class Graph {
       Node temp = nodeQueue.remove();
       set.add(temp);
       dfs(temp, set, nodeQueue);
-      map.put(groupNumber++, new HashSet<>(set));
+      setMap.put(groupNumber++, new HashSet<>(set));
       set = new HashSet<>();
     }
-    return new Graph(map);
+    return new Graph(setMap);
   }
 
   public int countComponents() {
-    return setHashMap.size();
+    return setMap.size();
   }
 
   public int getComponentId(Node node) {
-    for (Map.Entry<Integer, Set<Node>> item : setHashMap.entrySet()) {
+    for (Map.Entry<Integer, Set<Node>> item : setMap.entrySet()) {
       for (Node entry : item.getValue()) {
         if (entry == node) {
           return item.getKey();
