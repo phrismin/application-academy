@@ -1,18 +1,18 @@
 package academy.kovalevskyi.algorithms.week1.day0;
 
 public class GraphHelper {
-  public static boolean equals(GraphBinaryNode<?> left, GraphBinaryNode<?> right) {
-    return left == right || left.value() == right.value();
-  }
-
-  public static <T> GraphBinaryNode<T> invertGraph(GraphBinaryNode<T> root) {
-    if (root == null) {
-      return null;
+    public static boolean equals(GraphBinaryNode<?> left, GraphBinaryNode<?> right) {
+        return left == right || left.value() == right.value();
     }
 
-    GraphBinaryNode<T> left = invertGraph(root.left());
-    GraphBinaryNode<T> right = invertGraph(root.right());
+    public static <T> GraphBinaryNode<T> invertGraph(GraphBinaryNode<T> root) {
+        if (root == null) {
+            return null;
+        }
 
-    return new GraphBinaryNode(right, left, root.value());
-  }
+        GraphBinaryNode<T> left = invertGraph(root.left());
+        GraphBinaryNode<T> right = invertGraph(root.right());
+
+        return new GraphBinaryNode(right, left, root.value());
+    }
 }

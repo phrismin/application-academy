@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Node {
-  public List<Node> shortestPath = new LinkedList<>();
-  public Map<Node, Integer> connections = new HashMap<>();
-  public Integer distance = Integer.MAX_VALUE;
+    public List<Node> shortestPath = new LinkedList<>();
+    public Map<Node, Integer> connections = new HashMap<>();
+    public Integer distance = Integer.MAX_VALUE;
 }
