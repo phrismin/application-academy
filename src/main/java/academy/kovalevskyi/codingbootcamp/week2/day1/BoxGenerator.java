@@ -21,7 +21,7 @@ public class BoxGenerator {
     private static void checkNumber(String numberString) {
         char[] chars = new char[numberString.length()];
         StdString1 stdString1 = new StdString1();
-        stdString1.toCharArray(numberString)
+//        stdString1.toCharArray(numberString)
         int numberInt = StringUtils.toInt(chars);
     }
 }
